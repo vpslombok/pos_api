@@ -51,7 +51,6 @@ class ResetPasswordController extends Controller
         $user->forceFill([
             'password' => Hash::make($validatedData['password']),
         ])->save();
-
         // Hapus token reset password yang sudah digunakan berdasarkan token
         Password_resets::where('token', $token)->delete();
 
