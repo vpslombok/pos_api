@@ -8,7 +8,7 @@ use App\Models\Password_resets;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class ResetPasswordController extends Controller
+class ResetpasswordController extends Controller
 {
     public function showResetForm(Request $request)
     {

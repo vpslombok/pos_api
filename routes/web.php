@@ -18,5 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 // route reset password via aplikasi dan email
-Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('reset.password');
-Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('kirim.data');
+Route::get('/reset-password/{token}', [ResetpasswordController::class, 'showResetForm'])->name('reset.password');
+Route::post('/reset-password', [ResetpasswordController::class, 'reset'])->name('kirim.data');
