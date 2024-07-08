@@ -9,5 +9,15 @@ class Setting extends Model
 {
     use HasFactory;
     protected $table = 'setting';
-    protected $fillable = ['latitude', 'longitude'];
+    protected $fillable = ['latitude', 'longitude', 'nama_perusahaan'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function presensi()
+    {
+        return $this->belongsTo(Presensi::class);
+    }
 }

@@ -7,18 +7,13 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-    /**
-     * Define the application's command schedule.
-     */
-    protected function schedule(Schedule $schedule): void
+    protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        // Schedule the command to run daily at 8 AM
+        $schedule->command('email:presensi')->dailyAt('08:30');
     }
 
-    /**
-     * Register the commands for the application.
-     */
-    protected function commands(): void
+    protected function commands()
     {
         $this->load(__DIR__.'/Commands');
 

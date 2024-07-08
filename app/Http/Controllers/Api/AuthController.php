@@ -129,12 +129,19 @@ class AuthController extends Controller
                 return response()->json([
                     'message' => 'Anda sudah melakukan presensi masuk pada hari ini jam ' . $presensiMasuk . ' dan keluar pada jam ' . $presensiKeluar
                 ], 400);
+            } else if (empty($presensi->waktu_masuk)) {
+                $presensi->waktu_masuk = now();
+                $presensi->save();
+                return response()->json([
+                    'message' => 'Presensi masuk berhasil pada ' . now()->format('H:i:s')
+                ], 200);
+            } else {
+                $presensi->waktu_keluar = now();
+                $presensi->save();
+                return response()->json([
+                    'message' => 'Presensi keluar berhasil pada ' . now()->format('H:i:s')
+                ], 200);
             }
-            $presensi->waktu_keluar = now();
-            $presensi->save();
-            return response()->json([
-                'message' => 'Presensi keluar berhasil pada ' . now()->format('H:i:s')
-            ], 200);
         }
     }
 

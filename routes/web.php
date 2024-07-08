@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResetpasswordController;
-
+use App\Http\Controllers\EmailpresensiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +20,4 @@ Route::get('/', function () {
 // route reset password via aplikasi dan email
 Route::get('/reset-password/{token}', [ResetpasswordController::class, 'showResetForm'])->name('reset.password');
 Route::post('/reset-password', [ResetpasswordController::class, 'reset'])->name('kirim.data');
+Route::get('/kirim-email', [EmailpresensiController::class, 'sendEmail']);
