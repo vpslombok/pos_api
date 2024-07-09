@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reminder Presensi</title>
+    <title>Pengingat Presensi</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,7 +27,8 @@
     </style>
 </head>
 <body>
-    <p>Pemberitahuan: Anda memiliki presensi yang belum lengkap. Berikut adalah rinciannya:</p>
+    <p>Yang terhormat {{ $user->name }}</p>
+    <p>Perhatian: Anda memiliki beberapa tanggal yang belum lengkap presensinya. Silakan lengkapi presensi Anda untuk tanggal-tanggal berikut:</p>
     <table>
         <thead>
             <tr>
@@ -46,8 +47,6 @@
             @endforeach
         </tbody>
     </table>
-    <p>NIK: {{ $user->nik }} </p>
-    <p>Nama: {{ $user->name }} </p>
-    <p>Perusahaan: {{ $setting->nama_perusahaan }} </p>
+    <p>Hormat Kami: {{ $setting->nama_perusahaan }} </p>
 </body>
 </html>
