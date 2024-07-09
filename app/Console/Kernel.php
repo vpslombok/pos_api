@@ -9,7 +9,7 @@ class Kernel extends ConsoleKernel
 {
     protected function schedule(Schedule $schedule)
     {
-        // Jadwalkan perintah untuk berjalan setiap hari di jam 19:00
+        // Jadwalkan perintah untuk berjalan setiap hari di jam 00:00
         $schedule->command('email:presensi')->dailyAt('00:00');
     }
 
