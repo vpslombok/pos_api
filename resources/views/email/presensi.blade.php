@@ -8,21 +8,33 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            background-color: #f9f9f9;
         }
         table {
             border-collapse: collapse;
             width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 10px;
             text-align: left;
+            font-weight: bold;
         }
         th {
-            background-color: #f2f2f2;
+            background-color: #4CAF50;
+            color: white;
         }
         tr:nth-child(even) {
-            background-color: #f9f9f9;
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f0f0f0;
+        }
+        .merah {
+            color: red;
         }
     </style>
 </head>
@@ -42,11 +54,11 @@
                 <tr>
                     <td>{{ $presensi->tanggal }}</td>
                     <td>{{ $presensi->waktu_masuk ?? 'Tidak Ada' }}</td>
-                    <td>{{ $presensi->waktu_keluar ?? 'Tidak Ada' }}</td>
+                    <td class="{{ $presensi->waktu_keluar ? '' : 'merah' }}">{{ $presensi->waktu_keluar ?? 'Tidak Ada' }}</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-    <p>Hormat Kami: {{ $setting->nama_perusahaan }} </p>
+    <p>Copyright {{ $setting->nama_perusahaan }} </p>
 </body>
 </html>
