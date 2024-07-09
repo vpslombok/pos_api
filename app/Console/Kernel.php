@@ -9,8 +9,8 @@ class Kernel extends ConsoleKernel
 {
     protected function schedule(Schedule $schedule)
     {
-        // Schedule the command to run daily at 8 AM
-        $schedule->command('email:presensi')->dailyAt('08:30');
+        // Schedule the command to run every second
+        $schedule->command('email:presensi')->everyMinute();
     }
 
     protected function commands()
